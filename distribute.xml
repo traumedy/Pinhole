@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<distributeXml version="1">
+  <targets>
+    <qmsgpack.dll>
+      <sourcePath>x64/Release/qmsgpack.dll</sourcePath>
+      <destinationPath>{MSG_MSGSOFT_ROOT}/user/windows/qmsgpack.dll</destinationPath>
+    </qmsgpack.dll>
+    <uglobalhotkey.dll>
+      <sourcePath>x64/Release/uglobalhotkey.dll</sourcePath>
+      <destinationPath>{MSG_MSGSOFT_ROOT}/user/windows/uglobalhotkey.dll</destinationPath>
+    </uglobalhotkey.dll>
+    <PinholeClient.exe>
+      <sourcePath>x64/Release/PinholeClient.exe</sourcePath>
+      <destinationPath>{MSG_MSGSOFT_ROOT}/user/windows/PinholeClient.exe</destinationPath>
+    </PinholeClient.exe>
+  </targets>
+  <author>Josh Buchbinder joshua.buchbinder@msg.com</author>
+</distributeXml>

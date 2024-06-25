@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+    <Name>Pinhole</Name>
+    <Version>1.0.0</Version>
+    <Title>Pinhole Application Monitor</Title>
+    <Publisher>Obscura Digital, LLC</Publisher>
+    <StartMenuDir>Pinhole</StartMenuDir>
+	<MaintenanceToolName>PinholeUninstaller</MaintenanceToolName>
+    <TargetDir>@ApplicationsDirX64@/Pinhole</TargetDir>
+	<ControlScript>config.qs</ControlScript>
+</Installer>
+

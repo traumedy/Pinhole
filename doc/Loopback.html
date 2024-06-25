@@ -1,0 +1,23 @@
+<html>
+<H1>Details about the application TCP loopback</H1>
+
+<p>
+Applications can communicate to Pinhole via a TCP loopback.
+<br>
+<br>
+The format for the mesages sent to this port is defined as a single character 
+<b>h</b> for a hearbeat message or <b>e</b> for an error followed by an error message 
+(sent in a single packet).
+<br>
+Each application must have a unique TCP port configured to use.  The
+value of the port number is set by Pinhole in an environment variable 
+named <b>PINHOLEAPPPORT</b> when the application starts.
+<br>
+The port number can be changed while the application is running without
+restarting the application but the environment variable will not be 
+changed until the next time the application is launched.
+<br>
+</p>
+
+<a href="Pinhole.html">Main Pinhole documentation page</a>
+</html>

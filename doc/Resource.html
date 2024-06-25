@@ -1,0 +1,23 @@
+<html>
+<H1>Pinhole System Resource Monitoring</H1>
+
+<p>
+Pinhole has the ability to monitor available memory and disk space 
+and generate alerts when the specified minimum space is no longer available.
+<br>
+Pinhole will generate one alert when each monitored resource becomes low in 
+available space (memory or each disk) and will not generate more alerts again 
+until that resource drops to %90 of the specified amount.
+<br>
+Multiple disks may be monitored, the root of each disk must be listed.
+<br>
+On Windows this is the drive letter followed by a backslash (such as 
+<b>C:\</b>) and on Linux this is the path to where the drive is mounted.
+<br>
+The alert text will include the name of the resource, the current amount 
+of free space and the threshold value.
+<br>
+</p>
+
+<a href="Pinhole.html">Main Pinhole documentation page</a>
+</html>

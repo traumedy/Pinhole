@@ -1,0 +1,25 @@
+<html>
+<H1>Using a Pinhole Backend</H1>
+
+<p>
+In addition to communicating with PinholeServer directly  
+via a local TCP connection, a backend proxy server can be 
+deployed in a location accessible from servers and clients 
+when clients may not be able to connect directly to servers. 
+<br>
+PinholeBackend is a console application that listens for 
+connections from PinholeServer, then acts much as a Pinhole 
+Server itself.  When scanned using the <b>Find additional 
+hosts</b> dialog, any instances of PinholeServer connected 
+to the backend will appear in the host list and can then be 
+connect to as if they were on they were local.  Their status 
+will also continue to be updated.  
+<br>
+To configure PinholeServer to connect to PinholeBackend 
+put the host name or IP address of the machine running 
+PinholeBackend in the <b>Pinhole backend server</b> field 
+on the <b>Global</b> tab in the settings for a host.
+</p>
+
+<a href="Pinhole.html">Main Pinhole documentation page</a>
+</html>

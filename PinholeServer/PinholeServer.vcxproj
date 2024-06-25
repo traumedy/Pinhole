@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{85D547B6-2309-466F-9AB5-08721658156F}</ProjectGuid>
+    <Keyword>Qt4VSv1.0</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">
+    <QtMsBuild>$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>CONSOLE;UNICODE;_UNICODE;WIN32;WIN64;QT_CORE_LIB;QT_NETWORK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore\5.11.1\QtCore;$(QTDIR)\include\QtCore\5.11.1;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>$(OutDir)$(ProjectName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(OutDir)\qmsgpack.lib;ws2_32.lib;version.lib;Netapi32.lib;WtsApi32.lib;qtmaind.lib;Qt5Cored.lib;Qt5Networkd.lib;Qt5Concurrentd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateMapFile>true</GenerateMapFile>
+    </Link>
+    <QtMoc>
+      <Define>CONSOLE;UNICODE;_UNICODE;WIN32;WIN64;QT_CORE_LIB;QT_NETWORK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath>.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore\5.11.1\QtCore;$(QTDIR)\include\QtCore\5.11.1;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent;%(AdditionalIncludeDirectories)</IncludePath>
+      <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+    </QtMoc>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>CONSOLE;UNICODE;_UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_NETWORK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat />
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore\5.11.1\QtCore;$(QTDIR)\include\QtCore\5.11.1;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <OutputFile>$(OutDir)$(ProjectName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>$(OutDir)\qmsgpack.lib;ws2_32.lib;version.lib;Netapi32.lib;WtsApi32.lib;qtmain.lib;Qt5Core.lib;Qt5Network.lib;Qt5Concurrent.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <GenerateMapFile>true</GenerateMapFile>
+    </Link>
+    <QtMoc>
+      <Define>CONSOLE;UNICODE;_UNICODE;WIN32;WIN64;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_NETWORK_LIB;QT_CONCURRENT_LIB;%(PreprocessorDefinitions)</Define>
+      <IncludePath>.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore\5.11.1\QtCore;$(QTDIR)\include\QtCore\5.11.1;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtConcurrent;%(AdditionalIncludeDirectories)</IncludePath>
+      <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+    </QtMoc>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\common\DummyWindow.cpp" />
+    <ClCompile Include="..\common\HostClient.cpp" />
+    <ClCompile Include="..\common\MultiplexSocket.cpp" />
+    <ClCompile Include="..\common\Utilities.cpp" />
+    <ClCompile Include="..\common\Utilities_Mac.cpp" />
+    <ClCompile Include="..\common\Utilities_Win.cpp" />
+    <ClCompile Include="..\common\Utilities_Linux.cpp" />
+    <ClCompile Include="AlertManager.cpp" />
+    <ClCompile Include="AlertSlot.cpp" />
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="AppManager.cpp" />
+    <ClCompile Include="CommandInterface.cpp" />
+    <ClCompile Include="EncryptedTcpServer.cpp" />
+    <ClCompile Include="GlobalManager.cpp" />
+    <ClCompile Include="Group.cpp" />
+    <ClCompile Include="GroupManager.cpp" />
+    <ClCompile Include="GuiWaiter.cpp" />
+    <ClCompile Include="HeartbeatThread.cpp" />
+    <ClCompile Include="HelperLauncher.cpp" />
+    <ClCompile Include="HostUdpServer.cpp" />
+    <ClCompile Include="HTTPServer.cpp" />
+    <ClCompile Include="LinuxUtil.cpp" />
+    <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="MacUtil.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MultiplexServer.cpp" />
+    <ClCompile Include="NovaServer.cpp" />
+    <ClCompile Include="PasswordReset.cpp" />
+    <ClCompile Include="qnamedpipe.cpp" />
+    <ClCompile Include="ResourceMonitor.cpp" />
+    <ClCompile Include="ScheduleEvent.cpp" />
+    <ClCompile Include="ScheduleManager.cpp" />
+    <ClCompile Include="ServiceHandler.cpp" />
+    <ClCompile Include="Settings.cpp" />
+    <ClCompile Include="Sigar.cpp" />
+    <ClCompile Include="smtp.cpp" />
+    <ClCompile Include="StatusInterface.cpp" />
+    <ClCompile Include="UserProcess.cpp" />
+    <ClCompile Include="WinUtil.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="HostUdpServer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="AppManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="..\common\HostClient.h" />
+    <QtMoc Include="..\common\DummyWindow.h" />
+    <QtMoc Include="..\common\MultiplexSocket.h" />
+    <ClInclude Include="..\common\PinholeCommon.h" />
+    <ClInclude Include="..\common\Utilities.h" />
+    <QtMoc Include="GroupManager.h" />
+    <QtMoc Include="Group.h" />
+    <QtMoc Include="AlertManager.h" />
+    <QtMoc Include="AlertSlot.h" />
+    <QtMoc Include="HelperLauncher.h" />
+    <QtMoc Include="HTTPServer.h" />
+    <ClInclude Include="..\common\Version.h" />
+    <QtMoc Include="GuiWaiter.h" />
+    <QtMoc Include="CommandInterface.h" />
+    <QtMoc Include="HeartbeatThread.h" />
+    <ClInclude Include="LinuxUtil.h" />
+    <ClInclude Include="MacUtil.h" />
+    <QtMoc Include="qnamedpipe.h" />
+    <QtMoc Include="NovaServer.h" />
+    <QtMoc Include="smtp.h" />
+    <QtMoc Include="PasswordReset.h" />
+    <QtMoc Include="ServiceHandler.h" />
+    <QtMoc Include="ResourceMonitor.h" />
+    <QtMoc Include="MultiplexServer.h" />
+    <ClInclude Include="Sigar.h" />
+    <QtMoc Include="StatusInterface.h" />
+    <ClInclude Include="TimePeriodCount.h" />
+    <QtMoc Include="UserProcess.h" />
+    <ClInclude Include="Values.h" />
+    <ClInclude Include="WinUtil.h" />
+    <QtMoc Include="ScheduleManager.h" />
+    <QtMoc Include="ScheduleEvent.h" />
+    <QtMoc Include="GlobalManager.h" />
+    <QtMoc Include="Logger.h" />
+    <ClInclude Include="Settings.h" />
+    <QtMoc Include="EncryptedTcpServer.h" />
+    <QtMoc Include="Application.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libSigar\libSigar.vcxproj">
+      <Project>{770ea02f-3e8a-4aea-b60e-0dfbede3659a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\qmsgpack\qmsgpack.vcxproj">
+      <Project>{84740dee-3a60-3d7e-8847-141cbc755aa7}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" Qt5Version_x0020_x64="Qt5_x64" MocOptions="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

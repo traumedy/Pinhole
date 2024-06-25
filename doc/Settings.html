@@ -1,0 +1,31 @@
+<html>
+<H1>Importing Settings JSON</H1>
+
+<p>
+The JSON settings files exported by Pinhole can  be manually edited before re-importing.
+<br>
+Sections or value fields that are are removed will leave those settings unchanged when importing.
+</p>
+
+<p>
+When importing a settings JSON, a dialog will be presented allowing the selection of individual 
+sections or items within those sections to be imported.  Only the sections contained within the 
+JSON will be listed.
+<br>
+To omit specific values within a section manually edit the JSON.
+<br>
+The dialog allows three options for each section that can contain items: 
+<ul>
+<li>Add or update these entries - The default, this setting will add item entries in the settings 
+JSON for this group if none exist with the same name or if one exists with the same name the settings
+in the settings JSON will override the settings on the host for that item.  Existing items on the 
+host with names that are not in the settings JSON will be left intact.</li>
+<li>Set just these entries - Items will on the host will be added or updated as above except that
+items on the host that are _not_ in the settings JSON will be removed.</li>
+<li>Delete these entries - Items on the host with names matching the names in the settings JSON 
+will be removed.  Only the name field be present in the JSON.</li>
+</ul>
+</p>
+
+<a href="Pinhole.html">Main Pinhole documentation page</a>
+</html>

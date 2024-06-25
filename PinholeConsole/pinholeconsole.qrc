@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/PinholeConsole">
+        <file>Resources/Icons8-Windows-8-Security-Iris-Scan.ico</file>
+        <file>Resources/erase.ico</file>
+        <file>Resources/Custom-Icon-Design-Mono-General-4-Eye.ico</file>
+        <file>Resources/Icons8-Ios7-Household-Log-Cabin.ico</file>
+        <file>Resources/splitter.png</file>
+        <file>Resources/help.ico</file>
+        <file>Resources/add_button.ico</file>
+        <file>Resources/doc_export.ico</file>
+        <file>Resources/doc_import.ico</file>
+        <file>Resources/bulb_dark.ico</file>
+        <file>Resources/bulb_light.ico</file>
+        <file>Resources/window.ico</file>
+        <file>Resources/binocs.ico</file>
+        <file>Resources/sizegrip.png</file>
+    </qresource>
+</RCC>

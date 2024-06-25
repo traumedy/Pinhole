@@ -1,0 +1,76 @@
+<html>
+
+<H1>Logging</H1>
+
+<p>
+Pinhole keeps a log of many internal events that can be 
+retrieved later for diagnosing issues.  
+<br>
+These events can also be monitored in realtime using the Log Monitor dialog.
+</p>
+<img src="images/LogMonitorButton.png" />
+</p>
+The Log Monitor dialog also has a field that allows you to
+add entries to the log so you can make a note of an event
+that will be useful when reviewing the log later.
+</p>
+
+<p>
+The system tray icon menu also has an item that will show a 
+dialog that allows adding a message to the log.  
+<br>
+This can be used by clients of permanent installations to make 
+note of events.
+<br>
+The global hotkey Ctrl-Shift-F2 will bring up the logging dialog.
+</p>
+
+<p>
+Applications can also write messages to the Pinhole log using
+a named pipe created for the application.  
+<br>
+The name of the 
+named pipe is stored in an environment variable named 
+<b>PINHOLELOGPIPE</b>.  
+<br>
+This named pipe can be written to like a text file and the output 
+will be logged by Pinhole along with the application name.  
+<br>
+The log text can be prefixed with DEBUG, EXTRA, WARNING or ERROR to
+log text at a specific level, otherwise the text is logged at normal.
+<br>
+Additionally, if the text written to the pipe is prefixed with <b>ALERT</b> 
+an alert will be generated with the log text following <b>ALERT</b>.
+<br>
+Applications can send timeout heartbeats by sending a log message
+that with the text <b>HEARTBEAT</b>.  This will not generate a log message.
+<br>
+Applications can trigger scheduled events (even if the event frequency
+is set to <i>disabled</i>) by sending a log message beginning with
+<b>TRIGGER</b> followed by one or more event names serparated with 
+semicolons.  This means that applications can start and stop other 
+applications, take screenshots, reboot the computer, etc.
+
+<br>
+From a Windows script you could access the log as such:
+<pre>
+echo %DATE% %TIME% Application %PINHOLEAPPNAME% starting... > %PINHOLELOGPIPE%
+</pre>
+Of course, Pinhole time stamps every log entry anyway, this is just an example.
+
+<br>
+From python it can be accessed as a file such as:
+<pre>
+logPipe = open(os.getenviron("PINHOLELOGPIPE"))
+logPipe.write("This is a log entry")
+logPipe.flush()
+</pre>
+In TouchDesigner you can use <b>var("PINHOLELOGPIPE")</b> as well.
+<br>
+After opening the logging pipe you can keep the pipe open and keep 
+writing to it, but you must call flush() after each write() call to 
+push the buffer to Pinhole for immediate logging.
+</p>
+
+<a href="Pinhole.html">Main Pinhole documentation page</a>
+</html>

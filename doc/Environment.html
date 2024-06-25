@@ -1,0 +1,57 @@
+<html>
+
+<H1>Environment variables</H1>
+
+<p>
+New Environment variables can be passed to applications or existing ones 
+overriden by putting them in the <b>Environment</b> list.  
+<br>
+When <b>Add variable</b> is clicked a dummy entry is added to the list 
+(<i>NAME=VALUE</i>) and then changed by double clicking on the list entry.
+</p>
+
+<p>
+Pinhole automatically creates several environment variables for each 
+launched application:
+<ul>
+<li>PINHOLEAPPNAME - The application name</li>
+<li>PINHOLEROLE - The global role</li>
+<li>PINHOLELOGPIPE - The name of a named pipe that the application can
+write to to add entries to the Pinhole log.
+<li>PINHOLEAPPPORT - If TCP loopback is enabled for this applicaiton, the 
+port number of the TCP loopback port.  <br><b>Note</b> that if the port 
+number is changed while the application is running this environment variable 
+will not change until the next time the application is launched.
+<li>PINHOLEHTTPPORT - If the HTTP server is enabled, the port number of the
+Pinhole HTTP server.
+</ul>
+</p>
+
+<p>
+On Unix/Linux OSs Pinhole also sets variables <i>DISPLAY</i> and 
+<i>DBUS_SESSION_BUS_ADDRESS</i> appropriately to tell GUI applications to 
+run on the interactive desktop.  These values can be overriden by specifying 
+new values in the environment list for an application.
+</p>
+
+
+<p>
+Environment variables can reference other existing environment variables
+by including %VARIABLENAME% in their VALUE.
+<br>
+This will be replaced with the value of that variable.  If the variable 
+does not exist it will be replaced with an empty string.  
+<br>
+To include a percent sign in the value use double percents (%%).
+<br>
+For instance, the PATH environment variable could be expanded by setting:
+<pre>
+PATH=%PATH%;%ProgramFiles%\additional\path
+or
+PATH=%PATH%:%HOME%/additional/path
+</pre>
+Variable names may or may not be case sensitive depending on OS.
+</p>
+
+<a href="Pinhole.html">Main Pinhole documentation page</a>
+</html>

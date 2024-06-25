@@ -1,0 +1,46 @@
+<html>
+<H1>Details about Nova protocol</H1>
+
+<p>
+Pinhole can be controlled using the Nova protocol.  
+<br>
+It responds to these Nova commands:
+<ul>
+<li>switch_app(appname)  // Switch between apps in a group</li>
+<li>start_app(appname(s))    // Start an app, can be semicolon seperated list</li>
+<li>start_app_vars(appname;var=val;var=val...) // Start an app with variables
+<li>stop_app(appname(s))   // Stop an app, can be semicolon seperated list</li>
+<li>restart_app(appname(s)) // Stop and then restart an app, can be semicolon seperated list</li>
+<li>stop_group(groupname) // Stop all the apps in a group</li>
+<li>start_group(groupname)  // Start a group</li>
+<li>stop_all()  // Stop all apps</li>
+<li>start_all()  // Start all apps and groups</li>
+<li>restart()   // Reboot the computer</li>
+<li>shutdown()  // Power down the computer</li>
+<li>log(message) // Log a warning message
+</ul>
+</p>
+
+<p>
+The nova protocol contains one command per packet (can be UDP or TCP) and is in the format:
+<pre>
+source:destination:command
+</pre>
+Source and destination are in the format:
+<pre>
+site/area/display
+</pre>
+Any or all of these values can be left blank in which case any name will match.
+<br>
+The entire field can also be left blank as well to represent a wildcard.  
+<br>
+Source addresses are generally only needed if a response is required.  
+<br>
+A typical one to one NOVA packet for Monitoring Service might look like:
+<pre>
+::switch_app(fire)
+</pre>
+</p>
+
+<a href="Pinhole.html">Main Pinhole documentation page</a>
+</html>

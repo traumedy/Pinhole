@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/PinholeHelper">
+        <file>Resources/ODLogo.ico</file>
+    </qresource>
+</RCC>

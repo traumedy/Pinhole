@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PinholeConsole", "PinholeConsole\PinholeConsole.vcxproj", "{B12702AD-ABFB-343A-A199-8E24837244A3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{84740DEE-3A60-3D7E-8847-141CBC755AA7} = {84740DEE-3A60-3D7E-8847-141CBC755AA7}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PinholeServer", "PinholeServer\PinholeServer.vcxproj", "{85D547B6-2309-466F-9AB5-08721658156F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{770EA02F-3E8A-4AEA-B60E-0DFBEDE3659A} = {770EA02F-3E8A-4AEA-B60E-0DFBEDE3659A}
+		{84740DEE-3A60-3D7E-8847-141CBC755AA7} = {84740DEE-3A60-3D7E-8847-141CBC755AA7}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "qmsgpack", "qmsgpack\qmsgpack.vcxproj", "{84740DEE-3A60-3D7E-8847-141CBC755AA7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PinholeHelper", "PinholeHelper\PinholeHelper.vcxproj", "{3B8FB0E5-0483-4CF8-A5E5-935E0F99AAC5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B4B014A7-7F37-3822-96C1-292646E77801} = {B4B014A7-7F37-3822-96C1-292646E77801}
+		{84740DEE-3A60-3D7E-8847-141CBC755AA7} = {84740DEE-3A60-3D7E-8847-141CBC755AA7}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uglobalhotkey", "UGlobalHotkey\uglobalhotkey.vcxproj", "{B4B014A7-7F37-3822-96C1-292646E77801}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PinholeClient", "PinholeClient\PinholeClient.vcxproj", "{6423CEC9-15B3-4596-BD85-E851B04EDB4F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{84740DEE-3A60-3D7E-8847-141CBC755AA7} = {84740DEE-3A60-3D7E-8847-141CBC755AA7}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libSigar", "libSigar\libSigar.vcxproj", "{770EA02F-3E8A-4AEA-B60E-0DFBEDE3659A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2D8EAB31-631C-4776-BE5B-209C1FCA1541}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PinholeBackend", "PinholeBackend\PinholeBackend.vcxproj", "{C96FFBE0-F62D-408F-8CF4-F61C8008A528}"
+	ProjectSection(ProjectDependencies) = postProject
+		{84740DEE-3A60-3D7E-8847-141CBC755AA7} = {84740DEE-3A60-3D7E-8847-141CBC755AA7}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Debug|x64.ActiveCfg = Debug|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Debug|x64.Build.0 = Debug|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.ActiveCfg = Release|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.Build.0 = Release|x64
+		{85D547B6-2309-466F-9AB5-08721658156F}.Debug|x64.ActiveCfg = Debug|x64
+		{85D547B6-2309-466F-9AB5-08721658156F}.Debug|x64.Build.0 = Debug|x64
+		{85D547B6-2309-466F-9AB5-08721658156F}.Release|x64.ActiveCfg = Release|x64
+		{85D547B6-2309-466F-9AB5-08721658156F}.Release|x64.Build.0 = Release|x64
+		{84740DEE-3A60-3D7E-8847-141CBC755AA7}.Debug|x64.ActiveCfg = Debug|x64
+		{84740DEE-3A60-3D7E-8847-141CBC755AA7}.Debug|x64.Build.0 = Debug|x64
+		{84740DEE-3A60-3D7E-8847-141CBC755AA7}.Release|x64.ActiveCfg = Release|x64
+		{84740DEE-3A60-3D7E-8847-141CBC755AA7}.Release|x64.Build.0 = Release|x64
+		{3B8FB0E5-0483-4CF8-A5E5-935E0F99AAC5}.Debug|x64.ActiveCfg = Debug|x64
+		{3B8FB0E5-0483-4CF8-A5E5-935E0F99AAC5}.Debug|x64.Build.0 = Debug|x64
+		{3B8FB0E5-0483-4CF8-A5E5-935E0F99AAC5}.Release|x64.ActiveCfg = Release|x64
+		{3B8FB0E5-0483-4CF8-A5E5-935E0F99AAC5}.Release|x64.Build.0 = Release|x64
+		{B4B014A7-7F37-3822-96C1-292646E77801}.Debug|x64.ActiveCfg = Debug|x64
+		{B4B014A7-7F37-3822-96C1-292646E77801}.Debug|x64.Build.0 = Debug|x64
+		{B4B014A7-7F37-3822-96C1-292646E77801}.Release|x64.ActiveCfg = Release|x64
+		{B4B014A7-7F37-3822-96C1-292646E77801}.Release|x64.Build.0 = Release|x64
+		{6423CEC9-15B3-4596-BD85-E851B04EDB4F}.Debug|x64.ActiveCfg = Debug|x64
+		{6423CEC9-15B3-4596-BD85-E851B04EDB4F}.Debug|x64.Build.0 = Debug|x64
+		{6423CEC9-15B3-4596-BD85-E851B04EDB4F}.Release|x64.ActiveCfg = Release|x64
+		{6423CEC9-15B3-4596-BD85-E851B04EDB4F}.Release|x64.Build.0 = Release|x64
+		{770EA02F-3E8A-4AEA-B60E-0DFBEDE3659A}.Debug|x64.ActiveCfg = Debug|x64
+		{770EA02F-3E8A-4AEA-B60E-0DFBEDE3659A}.Debug|x64.Build.0 = Debug|x64
+		{770EA02F-3E8A-4AEA-B60E-0DFBEDE3659A}.Release|x64.ActiveCfg = Release|x64
+		{770EA02F-3E8A-4AEA-B60E-0DFBEDE3659A}.Release|x64.Build.0 = Release|x64
+		{C96FFBE0-F62D-408F-8CF4-F61C8008A528}.Debug|x64.ActiveCfg = Debug|x64
+		{C96FFBE0-F62D-408F-8CF4-F61C8008A528}.Debug|x64.Build.0 = Debug|x64
+		{C96FFBE0-F62D-408F-8CF4-F61C8008A528}.Release|x64.ActiveCfg = Release|x64
+		{C96FFBE0-F62D-408F-8CF4-F61C8008A528}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BA8AA9A8-F8A4-4597-BCE4-5EA48EC7CA54}
+	EndGlobalSection
+EndGlobal

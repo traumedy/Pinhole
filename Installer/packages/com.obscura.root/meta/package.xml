@@ -1,0 +1,16 @@
+<Package>
+    <DisplayName>Pinhole</DisplayName>
+    <Description>Application monitoring system</Description>
+    <Version>0.9.6</Version>
+    <ReleaseDate>2020-03-13</ReleaseDate>
+    <Name>com.obscura.root</Name>
+    <Script>installscript.qs</Script>
+	<RequiresAdminRights>true</RequiresAdminRights>
+    <SortingPriority>1</SortingPriority>
+    <Default>true</Default>
+    <ForcedInstallation>true</ForcedInstallation>
+    <Essential>true</Essential>
+	<UserInterfaces>
+		<UserInterface>targetwidget.ui</UserInterface>
+	</UserInterfaces>
+</Package>

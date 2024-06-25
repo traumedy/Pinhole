@@ -1,0 +1,13 @@
+[Unit]
+Description=Pinhole Server
+After=graphical.target display-manager.service
+
+[Service]
+Type=simple
+Environment="LD_LIBRARY_PATH=/opt/Pinhole"
+ExecStart=/opt/Pinhole/PinholeServer --service
+StandardOutput=null
+Restart=on-failure
+
+[Install]
+WantedBy=graphical.target

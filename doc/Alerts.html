@@ -1,0 +1,112 @@
+<html>
+<H1>Pinhole System Alerts</H1>
+
+<p>
+Pinhole will generate alerts in some internal critical conditions 
+such as if applicaitons reaching their crash throttle limit, and 
+applications themselves can generate alerts through the 
+<a href="Logging.html">logging pipe</a>.  
+<br>
+In the global settings Pinhole can also be configured to 
+<a href="Resource.html">monitor system resources</a> such as
+memory and disk space and will generate an alert of these resources
+drop below the specified amount.
+<br>
+By default alerts are only logged as warnings in the Pinhole log, 
+but multiple <i>Alert Slots</i> can be defined to have the alert 
+text delivered to additional external targets.
+<br>
+If sending an external alert fails for any reason an error is logged
+in the Pinhole log.  If successful a normal log entry is made.
+<br>
+These are the types of Alert Slots:  
+<ul>
+<li>SMTP Email</li>
+<li>HTTP GET</li>
+<li>HTTP POST</li>
+<li>Slack Webhook</li>
+</ul>
+</p>
+
+<H2>SMTP Email</H2>
+<p>
+Emails can be sent using SSL encrypted servers.  
+<br>
+You must fill in the SMTP fields to provide information about 
+the server and authentication to send the email.  
+<br>
+The argument field in the table should contain the email address
+to send the email to.
+<br>
+For some email services such as Yahoo Mail or Gmail you must lower
+the security permissions to allow 'older apps' to access/use the
+mail service.
+<br>
+If SSL is checked the connection will be initially encrypted.  This
+is usually used on port 465.
+<br>
+If TLS is checked the connection will NOT be initially encrypted
+but if the server supports the STARTTLS method encryption will be
+started after the initial connection has been established.  This is
+usually used on port 587.
+<br>
+Authentication methods CRAM-MD5, LOGIN and PLAIN are supported.
+<br>
+</p>
+
+<H2>HTTP GET</H2>
+<p>
+This type performs a simple HTTP GET request to the URL provided
+in the argument field.
+<br>
+The provided URL can (should) include the string <b>$ALERT$</b> 
+which will be replaced with the percent encoded text of the alert.
+<br>
+The response to the GET request is discarded.
+<br>
+</p>
+
+<H2>HTTP POST</H2>
+<p>
+This type performs a simple HTTP POST to the URL provided in the
+argument field.
+<br>
+The text of the alert is sent to the server with the content type
+<b>application/x-www-form-urlencoded</b>.
+<br>
+The response to the POST request is discarded.
+</p>
+
+<H2>Slack</H2>
+<p>
+This type performs a simple HTTP POST to the URL provided in the
+argument field.
+<br>
+The text of the alert is sent to the server encoded as a single 
+json field <b>text</b> with the content type <b>application/json</b>.
+<br>
+The response to the POST request is discarded.
+<br>
+This type can be used for any other compatible Webhook.
+</p>
+
+<H2>External command</H2>
+<p>
+This type executes an external program with the command line specified
+in the argument.<br>
+The command line can (should) contain the string <b>$ALERT$<b>
+which will be replaced with the text of the alert.  Arguments are split
+with whitespace or grouped with quotes.  To pass a quote used tripple 
+quotes.
+<br>
+As an example on Windows, this command line would launch cmd.exe 
+and write alerts to a file c:\log\alerts.txt with a time and date stamp:
+<pre>
+cmd /C echo %DATE% %TIME% $ALERT$ >> c:\log\alerts.txt
+</pre>
+<br>
+</p>
+
+
+<a href="Pinhole.html">Main Pinhole documentation page</a>
+</html>

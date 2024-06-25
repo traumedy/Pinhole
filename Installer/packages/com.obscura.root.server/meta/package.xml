@@ -1,0 +1,12 @@
+<Package>
+    <DisplayName>Pinhole Server</DisplayName>
+    <Description>Server for monitoring applications</Description>
+    <Version>0.9.6</Version>
+    <ReleaseDate>2020-03-13</ReleaseDate>
+    <Name>com.obscura.root.server</Name>
+    <Script>installscript.qs</Script>
+    <RequiresAdminRights>true</RequiresAdminRights>
+	<SortingPriority>101</SortingPriority>
+    <Default>true</Default>
+    <Essential>false</Essential>
+</Package>

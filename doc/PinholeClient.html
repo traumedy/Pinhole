@@ -1,0 +1,112 @@
+<html>
+<H1>PinholeClient - Command line client for Pinhole Server</H1>
+
+<p>
+Applications can communicate from the command line to Pinhole using PinholeClient.
+<br>
+PinholeClient is installed into the same base directory as Pinhole Console and 
+should be launched from a console window (cmd on Windows or bash from Linux or Mac).
+</p>
+<p>
+<i>
+NOTE: On Linux it is necessary to set the <b>LD_LIBRARY_PATH</b> environment variable
+to point to the directory containing the PinholeClient binary:
+<pre>
+:/opt/Pinhole$ LD_LIBRARY_PATH=/opt/Pinhole ./PinholeClient -v
+... or ...
+:/opt/Pinhole$ export LD_LIBRARY_PATH=/opt/Pinhole
+:/opt/Pinhole$ ./PinholeClient -v
+:/opt/Pinhole$ ./PinholeClient -h
+...
+</pre>
+</i>
+</p>
+<pre>
+Usage: PinholeClient [options] address verb name value
+Pinhole Console Client
+
+Options:
+  -?, -h, --help             Displays this help.
+  -v, --version              Displays version information.
+  -c, --commands             List commands that can be executed using the
+                             'command' verb.
+  -l, --list                 List properties that can be set or retrieved using
+                             the 'getprop' or 'setprop' verbs.
+  -s, --silent               Only output the property value, 'success' or
+                             'failure'.  Useful for redirecting the output of
+                             the application for scripting.
+  -i, --item &lt;item-name&gt;     The item to get or set the property of.
+  -p, --password &lt;password&gt;  Password for Pinhole server.
+
+Arguments:
+  address                    Server IP address or host name.
+  verb                       Type of command te execute, 'command' 'getprop'
+                             'setprop' or 'log'.  Use -l or -c to list commands
+                             and properties.
+  name                       Name of command to execute or property to get/set
+                             or the message to log.
+  value                      Argument for command or value for for setprop.
+                             Defaults to empty string, sometimes optional.
+</pre>
+<p>
+PinholeClient provides a basic interface to execute commands, set or retrieve
+property values or enter log messages to a single Pinhole Server.  
+<br>
+One operation is executed per execution.  
+<br>
+PinholeClient will exit with error level 0 if commands were successful or 1 
+if an error occured.
+</p>
+<p>
+The address argument position is where the IPv4, IPv6 or host name of the Pinhole
+Server to communicate with is specified.  
+<br>
+If the server is configured with a password then the -p option must be used to specify the password.
+</p>
+<p>
+Running PinholeClient with -c will list the 'name' values that can be used with the verb 'command'.  
+<br>
+Beside each command name is the type expected for the command in the value argument position.  
+<br>
+'void' types do not require an argument and the value argument position can be omitted.
+<br>
+'QString' types require a string, if the string contains spaces or special characters it 
+must be enclosed in quotes.
+<br>
+'QStringList' types can accept a single string or multiple strings separated by semicolons.
+<br>
+Again, use quotes if there are spaces or other special characters in any of the strings.
+</p>
+<p>
+Running PinholeClient with -l will list the 'name' properties that can be set or retrieved.
+<br>
+Beside each property name is the type of the value that must be included in the value
+argument position if setting this property.
+<br>
+'void' types are read-only and can be retrieved but not set.
+<br>
+'bool' types must be either 'true' or 'false'.
+<br>
+'int' types must be a numeric value.  Many numeric types have limited ranges and will fail
+to set if a value outside their valid range is supplied.
+<br>
+'QString' and 'QStringList' types are handled the same as for commands.  
+<br>
+Some QString properties only accept specific strings and will fail if others are supplied.
+</p>
+<br>
+Most non-global properties apply to specific items, and the -i option must be used 
+to specify the specific application, group, scheduled event or alert slot for which 
+the property is to be set or retrieve.
+<br>
+'appList', 'groupList', 'schedList', and 'alertSlotList' contail the list of the item
+names for each item type.
+<br>
+The list property values are read only but there are corresponding commands to add and delete
+entries from these lists.
+<br>
+New list entries receive reasonable or empty default values for all properties.
+</p>
+
+<a href="Pinhole.html">Main Pinhole documentation page</a>
+</html>
